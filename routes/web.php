@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::GET('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 Route::GET('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
 Route::POST('/folders/create', 'FolderController@create');
@@ -18,5 +20,6 @@ Route::GET('/folders/{id}/tasks/create', 'TaskController@showCreateForm')->name(
 Route::POST('/folders/{id}/tasks/create', 'TaskController@create');
 Route::GET('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');
 Route::POST('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');
+Route::GET('/', 'HomeController@index')->name('home');
 
 ?>
