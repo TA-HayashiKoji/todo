@@ -8,7 +8,7 @@
                     <div class="panel-heading">会員登録</div>
                     <div class="panel-body">
                         @if($errors->any())
-                            <div class="alert alertdanger">
+                            <div class="alert alert-danger">
                                 @foreach($errors->all() as $message)
                                     <p>{{ $message }}</p>
                                 @endforeach
