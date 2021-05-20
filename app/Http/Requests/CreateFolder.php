@@ -31,7 +31,7 @@ class CreateFolder extends FormRequest
     public function attributes()
     {
         return[
-            'title' => 'フォルダ名'
+            'title' => 'フォルダ名',
         ];
     }
 }

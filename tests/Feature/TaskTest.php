@@ -13,7 +13,7 @@ class TaskTesk extends TestCase
     use RefreshDatabase;
 
     /**
-     * 各テストメソッドの実行前に呼ばれる
+     * 各テストメソッドの実行前に呼ばれる.
      */
     public function setup()
     {
@@ -22,7 +22,6 @@ class TaskTesk extends TestCase
         //テストケース実行前にフォルダデータを作成する
         $this->seed('FolderstableSeeder');
     }
-
 
     /**
      * 期限日が日付ではない場合はバリデーションエラー
@@ -40,7 +39,6 @@ class TaskTesk extends TestCase
         ]);
     }
 
-
     /**
      * 期限日が過去日付の場合はバリデーションエラー
      * @test
@@ -57,7 +55,6 @@ class TaskTesk extends TestCase
         ]);
     }
 
-
     /**
      * 状態が定義された値ではない場合はバリデーションエラー
      * @test
@@ -66,7 +63,7 @@ class TaskTesk extends TestCase
     {
         $this->seed('TasksTableSeeder');
 
-        $response = $this->post('/folders/1/tasks/1/edit',[
+        $response = $this->post('/folders/1/tasks/1/edit', [
             'title' => 'Sample Task',
             'due_date' => Carbon::today()->format('Y/m/d'),
             'status' => 999,
