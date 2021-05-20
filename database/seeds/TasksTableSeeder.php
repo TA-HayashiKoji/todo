@@ -4,7 +4,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
 class TasksTableSeeder extends Seeder
 {
     /**
@@ -14,8 +13,7 @@ class TasksTableSeeder extends Seeder
      */
     public function run()
     {
-
-        foreach(range(1,3) as $num) {
+        foreach (range(1, 3) as $num) {
             DB::table('tasks')->insert([
                 'folder_id' => 1,
                 'title' => "サンプルタスク {$num}",

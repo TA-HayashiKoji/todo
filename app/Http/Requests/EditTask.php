@@ -14,10 +14,9 @@ class EditTask extends CreateTask
         $status_rule = Rule::in(array_keys(Task::STATUS));
 
         return $rule + [
-            'status' => 'required|' . $status_rule,
+            'status' => 'required|'.$status_rule,
         ];
     }
-
 
     public function attributes()
     {
@@ -28,19 +27,18 @@ class EditTask extends CreateTask
         ];
     }
 
-
     public function messages()
     {
         $messages = parent::messages();
 
-        $status_labels = array_map(function($item) {
+        $status_labels = array_map(function ($item) {
             return $item['label'];
         }, Task::STATUS);
 
         $status_labels = implode('、', $status_labels);
 
         return $messages + [
-            'status.in' => ':attribute には ' . $status_labels . ' のいずれかを指定してください。',
+            'status.in' => ':attribute には '.$status_labels.' のいずれかを指定してください。',
         ];
     }
 }
