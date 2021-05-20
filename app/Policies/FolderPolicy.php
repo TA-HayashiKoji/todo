@@ -8,7 +8,7 @@ use App\User;
 class FolderPolicy
 {
     /**
-     * フォルダの閲覧制限
+     * フォルダの閲覧制限.
      * @param User $user
      * @param Folder $folder
      * @return bool

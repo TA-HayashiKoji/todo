@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class TaskController extends Controller
 {
     /**
-     * タスク一覧
+     * タスク一覧.
      * @param Folder $folder
      * @return \Illuminate\View\View
      */
@@ -32,7 +32,7 @@ class TaskController extends Controller
     }
 
     /**
-     * タスク作成フォーム
+     * タスク作成フォーム.
      * @param Folder $folder
      * @return \Illuminate\View\View
      */
@@ -43,9 +43,8 @@ class TaskController extends Controller
         ]);
     }
 
-
     /**
-     * タスクを作成
+     * タスクを作成.
      * @param Folder $folder
      * @param Create $request
      * @return \Illuminate\Http\RedirectResponse
@@ -63,25 +62,23 @@ class TaskController extends Controller
         ]);
     }
 
-
     /**
-     * タスク編集フォーム
+     * タスク編集フォーム.
      * @param Folder $folder
      * @param Task $task
      * @return \Illuminate\View\View
      */
     public function showEditForm(Folder $folder, Task $task)
     {
-        $this->checkRelation($folder,$task);
+        $this->checkRelation($folder, $task);
 
         return view('tasks/edit', [
             'task' => $task,
         ]);
     }
 
-
     /**
-     * タスクを編集
+     * タスクを編集.
      * @param Folder $folder
      * @param Task $task
      * @param EditTask $request
@@ -89,7 +86,7 @@ class TaskController extends Controller
      */
     public function edit(Folder $folder, Task $task, EditTask $request)
     {
-        $this->checkRelation($folder,$task);
+        $this->checkRelation($folder, $task);
 
         //編集対象の入力値を設定後、保存
         $task->title = $request->title;
@@ -102,10 +99,7 @@ class TaskController extends Controller
         ]);
     }
 
-    /**
-     * 
-     */
-    private function checkRelation(Folder $folder,Task $task)
+    private function checkRelation(Folder $folder, Task $task)
     {
         if ($folder->id !== $task->folder_id) {
             abort(404);

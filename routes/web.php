@@ -11,13 +11,13 @@
 |
 */
 
-Route::GROUP(['middleware' => 'auth'], function() {
+Route::GROUP(['middleware' => 'auth'], function () {
     Route::GET('/', 'HomeController@index')->name('home');
 
     Route::GET('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
     Route::POST('/folders/create', 'FolderController@create');
 
-    Route::GROUP(['middleware' => 'can:view,folder'], function() {
+    Route::GROUP(['middleware' => 'can:view,folder'], function () {
         Route::GET('/folders/{folder}/tasks', 'TaskController@index')->name('tasks.index');
 
         Route::GET('/folders/{folder}/tasks/create', 'TaskController@showCreateForm')->name('tasks.create');
@@ -29,6 +29,3 @@ Route::GROUP(['middleware' => 'auth'], function() {
 });
 
 Auth::routes();
-
-
-?>

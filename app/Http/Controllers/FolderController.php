@@ -14,7 +14,6 @@ class FolderController extends Controller
         return view('folders/create');
     }
 
-
     public function create(CreateFolder $request)
     {
         //フォルダモデルのインスタンスを作成する
@@ -30,6 +29,4 @@ class FolderController extends Controller
             'id' => $folder->id,
         ]);
     }
-
-
 }
